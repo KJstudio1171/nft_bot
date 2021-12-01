@@ -1,4 +1,4 @@
-import selenium
+import platform
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 
@@ -13,7 +13,12 @@ options = webdriver.ChromeOptions()
 options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36")
 options.add_argument("app-version=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36")
-chrome_driver = "C:\\programming\\KJstudio\\program\\project\\klay_offer_macro\\chromedriver\\windows\\chromedriver"
+if platform.system() == 'Windows':
+	chrome_driver = "C:\\programming\\KJstudio\\program\\project\\klay_offer_macro\\chromedriver\\windows\\chromedriver"
+elif platform.system() == 'Darwin':
+	chrome_driver = "C:\\programming\\KJstudio\\program\\project\\klay_offer_macro\\chromedriver\\mac\\chromedriver"
+else:
+	print('platform error')
 driver = webdriver.Chrome(chrome_driver, options=options)
 
 try:
