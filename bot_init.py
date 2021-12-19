@@ -29,10 +29,10 @@ def chromedriverMaker():
 
 def runChromeDebuggingMode():
 	if platformType == "Windows":
-		os.chdir('C:\\Program Files\\Google\\Chrome\\Application')
+		os.chdir('C:\Program Files\\Google\\Chrome\\Application')
 		os.system('chrome.exe --remote-debugging-port=9222 --user-data-dir="C:/ChromeTEMP"')
 	elif platformType == "Darwin":
-		os.chdir('C:\\Program Files\\Google\\Chrome\\Application')
+		os.chdir('C:\Program Files\\Google\\Chrome\\Application')
 		os.system('--remote-debugging-port=9222 --user-data-dir="~/ChromeProfile"')
 	else:
 		raise Exception("platform Error")
