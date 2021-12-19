@@ -32,10 +32,12 @@ def runChromeDebuggingMode():
 		os.chdir('C:\Program Files\\Google\\Chrome\\Application')
 		os.system('chrome.exe --remote-debugging-port=9222 --user-data-dir="C:/ChromeTEMP"')
 	elif platformType == "Darwin":
-		os.chdir('C:\Program Files\\Google\\Chrome\\Application')
-		os.system('--remote-debugging-port=9222 --user-data-dir="~/ChromeProfile"')
+		os.chdir('/Applications/Google Chrome.app/Contents/MacOS')
+		print(os.getcwd())
+		os.system('./Google\ Chrome --remote-debugging-port=9222 --user-data-dir="~/ChromeProfile"')
 	else:
 		raise Exception("platform Error")
 
 if __name__ == "__main__":
 	runChromeDebuggingMode()
+	quit()
