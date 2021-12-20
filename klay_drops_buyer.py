@@ -14,7 +14,7 @@ p.moveTo(687,958)
 
 
 try:
-	element3 = WebDriverWait(driver, 10, 0.1).until(
+	element3 = WebDriverWait(driver, 1, 0.1).until(
 		EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT,'구매하기'))
 	)
 except Exception as e:
