@@ -14,7 +14,7 @@ p.moveTo(687,958)
 
 
 try:
-	element3 = WebDriverWait(driver, 10, 0.1).until(
+	element3 = WebDriverWait(driver, 60, 0.1).until(
 		EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT,'구매하기'))
 	)
 except Exception as e:
@@ -49,18 +49,19 @@ except Exception as e:
 
 element3.click()
 
-p.moveTo(281,747)
-p.click()
-p.moveTo(276,810)
-p.click()
-p.moveTo(276,892)
-p.click()
+try:
+	button = driver.find_elements_by_class_name('am-checkbox-input')
+	for i in button:
+		i.click()
+except Exception as e:
+	print('no element')
+
 
 try:
-	element3 = WebDriverWait(driver, 2, 0.1).until(
+	element = WebDriverWait(driver, 2, 0.1).until(
 		EC.element_to_be_clickable((By.LINK_TEXT,'결제하기'))
 	)
 except Exception as e:
 	print('no element')
 
-element3.click()
+element.click()
