@@ -14,12 +14,13 @@ platformType = platform.system()
 
 def dirMaker(platformType:str):
 	cwd = os.getcwd()
-	dir = "//".join([cwd, "chromedriver", platformType])
+	dir = "/".join([cwd, "chromedriver", platformType])
 	return dir
 
 def chromedriverMaker():
 	dir = dirMaker(platformType)
-	chrome_driver = "//".join([dir, chrome_ver, "chromedriver.exe"])
+
+	chrome_driver = "/".join([dir, chrome_ver, "chromedriver"])
 	try:
 		driver = webdriver.Chrome(chrome_driver, options=options)
 	except:
@@ -32,10 +33,11 @@ def runChromeDebuggingMode():
 		os.chdir('C:\Program Files\\Google\\Chrome\\Application')
 		os.system('chrome.exe --remote-debugging-port=9222 --user-data-dir="C:/ChromeTEMP"')
 	elif platformType == "Darwin":
-		os.chdir('C:\Program Files\\Google\\Chrome\\Application')
-		os.system('--remote-debugging-port=9222 --user-data-dir="~/ChromeProfile"')
+		os.chdir('/Applications/Google Chrome.app/Contents/MacOS')
+		os.system('./Google\ Chrome --remote-debugging-port=9222 --user-data-dir="~/ChromeProfile"')
 	else:
 		raise Exception("platform Error")
 
 if __name__ == "__main__":
 	runChromeDebuggingMode()
+	quit()
